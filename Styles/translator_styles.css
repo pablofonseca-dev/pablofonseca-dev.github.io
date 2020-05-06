@@ -234,7 +234,27 @@ select{
     background-color: #DDD;
 }
 
-@media only screen and (max-width: 600px) {
+
+@media only screen and (max-width: 1344px){
+    #logo {
+        height: 60px;
+        width: 60px;
+        position: relative;
+        margin-right: 364px;
+        margin-top: 8px;
+        margin: 0 auto;
+    }
+
+    .absolute_wrapper {
+        text-align: center;
+        background-color: #1e272e;
+        position: relative;
+        padding: 20px;
+    }
+}
+
+
+@media only screen and (max-width: 770px) {
     main{
         display: block !important;
     }
