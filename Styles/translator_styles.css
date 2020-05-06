@@ -1,0 +1,120 @@
+body{
+    padding: 0; 
+    margin: 0; 
+    background: rgb(20,40,80);
+    background: linear-gradient(125deg, rgba(20,40,80,1) 0%, rgba(39,73,109,1) 25%, rgba(12,123,147,1) 50%, rgba(0,168,204,1) 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+main{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+section{
+    width: 90vw;
+}
+
+
+article{
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+h1{
+    font-family: 'Alegreya Sans';
+    font-weight: 100;
+    font-size: 65px;
+    text-align: center;
+    margin: 0;
+    background-color: #1e272e;
+    color:#FFFFFF; 
+    width: 100%;
+    margin: 0 auto;
+}
+textarea{
+    width: 100%;
+    height: 300px;
+    padding: 12px 20px;
+    resize: none;
+    box-sizing: border-box;
+    border: none;
+    background-color:#ecf0f1;
+    margin: 0;
+    font-size: 30px;
+    font-family: 'Alegreya Sans';
+    font-weight: 300;
+}
+
+.language_component{
+    background-color:#1e272e;
+    font-family: 'Poppins Light';
+    font-size: 25px;
+    color: #FFFFFF;
+    padding-top: 10px; 
+    padding-bottom: 10px;
+}
+
+select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 20px 50px 20px 50px;
+    background-color: #ECF0F1;
+    border: none;
+    font-family: 'Alegreya Sans Light';
+    font-weight: thin;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+
+
+#translator_form > div.father_wrapper > div.child_wrapper{
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#translator_form > div.father_wrapper > div.child_wrapper > div.language_component{
+    text-align: center;
+}
+
+#translator_form > div.father_wrapper > div.child_wrapper{
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+#translator_form > div.father_wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+#submit_btn{
+    align-self: flex-end;
+    text-align: center; 
+    width: 24%;
+    display: block;
+    margin: 0 auto;
+    padding: 20px 30px 20px 30px;
+    font-family: 'Poppins Light';
+    font-size: 25px;
+    background-color: #1e272e;
+    border:none;
+    color: #FFFFFF;
+    margin-top: 2%;
+    cursor: pointer; 
+}
+
+#submit_btn:hover{
+    transition-duration: 500ms;
+    background-color: #ecf0f1;
+    color: #1e272e;
+}
+
