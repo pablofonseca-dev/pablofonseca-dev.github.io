@@ -35,6 +35,9 @@ function loadAvailableLanguages() {
                 }
             }
         })
+        .catch(e =>{
+            console.log("Exception in Promise");
+        });
         // .then(() => {
         //     setSelectedLanguages();
         // });
@@ -97,6 +100,9 @@ function translateContent(translateFromLanguage, translateToLanguage, textToTran
             //debugger;
             translatedText = data;
             translatedContent.value = translatedText.text[0];
+        })
+        .catch(e =>{
+            console.log("Exception in Promise");
         });
 }
 

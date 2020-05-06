@@ -234,3 +234,12 @@ select{
 .darker{
     background-color: #DDD;
 }
+
+@media only screen and (max-width: 600px) {
+    #translator_form > div.father_wrapper{
+        display: block;
+    }
+    section {
+        width: 100vw;
+    }
+}
