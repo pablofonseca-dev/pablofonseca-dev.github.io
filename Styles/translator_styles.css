@@ -1,3 +1,100 @@
+@font-face {
+    font-family: 'Alegreya Sans';
+    src: url('AlegreyaSans-LightItalic.woff2') format('woff2'),
+        url('AlegreyaSans-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('Poppins-ThinItalic.woff2') format('woff2'),
+        url('Poppins-ThinItalic.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Alegreya Sans';
+    src: url('AlegreyaSans-ThinItalic.woff2') format('woff2'),
+        url('AlegreyaSans-ThinItalic.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('Poppins-Thin.woff2') format('woff2'),
+        url('Poppins-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Alegreya Sans';
+    src: url('AlegreyaSans-Thin.woff2') format('woff2'),
+        url('AlegreyaSans-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('Poppins-Light.woff2') format('woff2'),
+        url('Poppins-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('Poppins-Medium.woff2') format('woff2'),
+        url('Poppins-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Alegreya Sans';
+    src: url('AlegreyaSans-Regular.woff2') format('woff2'),
+        url('AlegreyaSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('Poppins-ExtraLight.woff2') format('woff2'),
+        url('Poppins-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('Poppins-ExtraLightItalic.woff2') format('woff2'),
+        url('Poppins-ExtraLightItalic.woff') format('woff');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Poppins';
+    src: url('Poppins-LightItalic.woff2') format('woff2'),
+        url('Poppins-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Alegreya Sans';
+    src: url('AlegreyaSans-Light.woff2') format('woff2'),
+        url('AlegreyaSans-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+}
+
+
 body{
     padding: 0; 
     margin: 0; 
@@ -26,6 +123,16 @@ article{
     -moz-border-radius: 20px;
     -ms-border-radius: 20px;
     -o-border-radius: 20px;
+}
+
+#logo{
+    height: 60px; 
+    width: 60px;
+    position: absolute; 
+    top: 0;
+    right: 0;
+    margin-right: 364px;
+    margin-top: 8px;
 }
 
 h1{
@@ -75,7 +182,9 @@ select{
     cursor: pointer;
 }
 
-
+.absolute_wrapper{
+    position: relative;
+}
 
 #translator_form > div.father_wrapper > div.child_wrapper{
     width: 100%;
@@ -118,3 +227,10 @@ select{
     color: #1e272e;
 }
 
+.right_separator{
+    border-right: 1px solid #ccc;
+}
+
+.darker{
+    background-color: #DDD;
+}

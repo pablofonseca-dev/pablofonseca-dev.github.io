@@ -9,6 +9,7 @@ let toLanguageDropDown = document.getElementById('toLanguage');
 
 loadAvailableLanguages();
 
+
 function loadAvailableLanguages() {
     fetch(`https://translate.yandex.net/api/v1.5/tr.json/getLangs
 ?key=${TRANSLATE_API_KEY}
@@ -20,27 +21,39 @@ function loadAvailableLanguages() {
             //debugger;
             let JSONReceivedData = data.langs;
             for (let x in JSONReceivedData) {
-                fromLanguageDropDown.insertAdjacentHTML("beforeend", '<option value="' + x + '">' + JSONReceivedData[x] + '</option>');
-                toLanguageDropDown.insertAdjacentHTML("beforeend", '<option value="' + x + '">' + JSONReceivedData[x] + '</option>');
+                if(JSONReceivedData[x] != 'Spanish'){
+                    fromLanguageDropDown.insertAdjacentHTML("beforeend", '<option value="' + x + '">' + JSONReceivedData[x] + '</option>');
+                }else{
+                    fromLanguageDropDown.insertAdjacentHTML("beforeend", '<option value="' + x + '" selected="true">' + JSONReceivedData[x] + '</option>');
+                }
+            }
+            for (let x in JSONReceivedData) {
+                if(JSONReceivedData[x] != 'English'){
+                    toLanguageDropDown.insertAdjacentHTML("beforeend", '<option value="' + x + '">' + JSONReceivedData[x] + '</option>');
+                }else{
+                    toLanguageDropDown.insertAdjacentHTML("beforeend", '<option value="' + x + '" selected="true">' + JSONReceivedData[x] + '</option>');
+                }
             }
         })
-        .then(() => {
-            setSelectedLanguages();
-        });
+        // .then(() => {
+        //     setSelectedLanguages();
+        // });
 }
 
-function setSelectedLanguages(){
+
+
+function setSelectedLanguages() {
     let translateFromLanguage = localStorage.getItem('translateFromLanguage');
     let translateToLanguage = localStorage.getItem('translateToLanguage');
     let selectedOptions = fromLanguageDropDown.options;
-    for(let option, index = 0; option = selectedOptions[index]; index++){
-        if(option.value == translateFromLanguage){
+    for (let option, index = 0; option = selectedOptions[index]; index++) {
+        if (option.value == translateFromLanguage) {
             fromLanguageDropDown.selectedIndex = index;
             break;
         }
     }
-    for(let option, index = 0; option = selectedOptions[index]; index++){
-        if(option.value == translateToLanguage){
+    for (let option, index = 0; option = selectedOptions[index]; index++) {
+        if (option.value == translateToLanguage) {
             toLanguageDropDown.selectedIndex = index;
             break;
         }
@@ -53,21 +66,20 @@ let dropdownToLanguage = document.getElementById('toLanguage');
 
 let translateFromLanguage;
 let translateToLanguage;
-let contentToTranslate; 
+let contentToTranslate = document.getElementById('content_to_translate');
 let translatedContent = document.getElementById('content_translated');
 
-translatorForm.addEventListener('submit', function () {
+contentToTranslate.addEventListener('keyup', function (event) {
 
-    //Remove text area value 
-    translatedContent.value = ''; 
-    //Load the selecteded languages in the Drop Downs.
-    translateFromLanguage = dropdownFromLanguage.value;
-    translateToLanguage = dropdownToLanguage.value;
-    contentToTranslate = document.getElementById('content_to_translate').value;
-    translateContent(translateFromLanguage, translateToLanguage, contentToTranslate);
-    
-    localStorage.setItem('translateFromLanguage', translateFromLanguage);
-    localStorage.setItem('translateToLanguage', translateToLanguage);
+        localStorage.setItem('translateFromLanguage', translateFromLanguage);
+        localStorage.setItem('translateToLanguage', translateToLanguage);
+
+        //Remove text area value 
+        translatedContent.value = '';
+        //Load the selecteded languages in the Drop Downs.
+        translateFromLanguage = dropdownFromLanguage.value;
+        translateToLanguage = dropdownToLanguage.value;
+        translateContent(translateFromLanguage, translateToLanguage, contentToTranslate.value);
 
 });
 
@@ -75,18 +87,17 @@ translatorForm.addEventListener('submit', function () {
 //CODE FOR TRANSLATE
 function translateContent(translateFromLanguage, translateToLanguage, textToTranslate) {
     let translatedText = "";
-    // let textToTranslate = "What the fuck are you doing?";
-    // let translateFromLanguage = 'en';
-    // let translateToLanguage = 'es';
     fetch(`
     https://translate.yandex.net/api/v1.5/tr.json/translate?key=${TRANSLATE_API_KEY}
-    &text=${textToTranslate}
+    &text=${escape(textToTranslate)}
     &lang=${translateFromLanguage}-${translateToLanguage}
     &[format=plain]`)
-    .then(data => data.json())
-    .then(data => {
-        //debugger;
-        translatedText = data;
-        translatedContent.value = translatedText.text[0];             
-    });
+        .then(data => data.json())
+        .then(data => {
+            //debugger;
+            translatedText = data;
+            translatedContent.value = translatedText.text[0];
+        });
 }
+
+translateContent();
