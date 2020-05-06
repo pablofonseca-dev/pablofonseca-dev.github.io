@@ -235,10 +235,45 @@ select{
 }
 
 @media only screen and (max-width: 600px) {
+    main{
+        display: block !important;
+    }
+
+    #translator_form > div.father_wrapper{
+        display: block;
+    }
     #translator_form > div.father_wrapper{
         display: block;
     }
     section {
         width: 100vw;
+    }
+
+    h1 {
+        font-family: 'Alegreya Sans';
+        font-weight: 100;
+        font-size: 60px;
+        text-align: center;
+        margin: 0;
+        background-color: #1e272e;
+        color: #FFFFFF;
+        width: 100%;
+        margin: 0 auto;
+    }
+
+    #logo {
+        height: 60px;
+        width: 60px;
+        position: relative;
+        margin-right: 364px;
+        margin-top: 8px;
+        margin: 0 auto;
+    }
+
+    .absolute_wrapper {
+        text-align: center;
+        background-color: #1e272e;
+        position: relative;
+        padding: 20px;
     }
 }
